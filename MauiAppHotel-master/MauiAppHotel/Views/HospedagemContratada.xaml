@@ -1,0 +1,91 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="MauiAppHotel.Views.HospedagemContratada"
+             NavigationPage.HasNavigationBar="False"
+             BackgroundColor="#FF740202">
+
+    <VerticalStackLayout VerticalOptions="CenterAndExpand">
+
+        <Label Text="{Binding QuartoSelecionado.Descricao}"
+               TextColor="White"
+               FontFamily="Agbalumo"
+               FontSize="50"
+               HorizontalTextAlignment="Center"/>
+
+        <Frame Margin="10">
+            <StackLayout  Orientation="Horizontal" >
+                <HorizontalStackLayout HorizontalOptions="CenterAndExpand">
+                    <Label Text="Adultos: " 
+                        FontFamily ="OpenSansSemibold"
+                        />
+                    <Label 
+                        FontFamily ="OpenSansSemibold"
+                        Text="{Binding QntAdultos}" 
+                        TextColor="#FF740202" />
+                </HorizontalStackLayout>
+
+                <HorizontalStackLayout HorizontalOptions="CenterAndExpand">
+                    <Label Text="Crianças: " 
+                        FontFamily ="OpenSansSemibold"
+                        />
+                    <Label Text="{Binding QntCriancas}"
+                        FontFamily ="OpenSansSemibold" 
+                        TextColor="#FF740202" />
+                </HorizontalStackLayout>
+            </StackLayout>
+        </Frame>
+
+        <Frame Margin="10">
+            <Grid ColumnDefinitions="*, *, *"
+                  RowDefinitions="Auto, Auto">
+
+                <Label Grid.Row="0" Grid.Column="0" Text="Check-in:"  
+                    FontFamily ="OpenSansSemibold"/>
+
+                <Label Grid.Row="0" Grid.Column="1" Text="Check-out:" 
+                    FontFamily ="OpenSansSemibold"/>
+
+                <Label Grid.Row="0" Grid.Column="2" Text="Estadia:" 
+                     FontFamily ="OpenSansSemibold"/>
+
+                <Label Grid.Row="1" Grid.Column="0" 
+                       Text="{Binding DataCheckIn, StringFormat='{}{0:dd/MM/yyyy}'}"
+                       TextColor="#FF740202" 
+                       FontFamily ="OpenSansSemibold"
+                       />
+
+                <Label Grid.Row="1" Grid.Column="1" 
+                       Text="{Binding DataCheckOut, StringFormat='{}{0:dd/MM/yyyy}'}"
+                       TextColor="#FF740202" 
+                       FontFamily ="OpenSansSemibold"
+                       />
+
+                <Label Grid.Row="1" Grid.Column="2" 
+                       Text="{Binding Estadia}"
+                       TextColor="#FF740202"
+                       FontFamily ="OpenSansSemibold"
+                       />
+            </Grid>
+        </Frame>
+
+        <Frame Margin="10">
+            <HorizontalStackLayout HorizontalOptions="CenterAndExpand">
+                <Label Text="Valor Total: " 
+                    FontFamily ="OpenSansSemibold"
+                    />
+                <Label Text="{Binding ValorTotal, StringFormat='{}{0:c}'} "
+                    FontFamily ="OpenSansSemibold"
+                    TextColor="#FF740202" />
+            </HorizontalStackLayout>
+        </Frame>
+
+        <Button Text="Voltar"
+                BackgroundColor ="White"
+                TextColor = "#FF740202"
+                HorizontalOptions="Center"
+                Clicked="Button_Clicked" 
+                />
+
+    </VerticalStackLayout>
+</ContentPage>
